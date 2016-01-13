@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
    <title>Map</title>
-   <script src="../Real/BOMscorm/Content/SCO1/svg.min.js"></script>
-   <script src="SVGMap.js"></script>
-   <link type="text/css" rel="stylesheet" href="map.css"/>
-</head>
-<body onload="mapStartUp()">
-<div id="map">
 
-</div>
-<!--
+   <script src="svg.min.js"></script>
+
+   <script src="SVGMap.js"></script>
+   <link type="text/css" rel="stylesheet" href="map.css" />
+</head>
+
+<body onload="mapStartUp()">
+   <div id="map">
+
+   </div>
+   <!--
 <svg id="map2" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 1104 349.9" style="enable-background:new 0 0 1104 349.9;" xml:space="preserve">
 
@@ -33,11 +37,12 @@
 </svg>
 <input type="range" min="0" max="100"  value="0" step="0.1" onchange="changeIt(this.value)" >
 -->
-<input id="scale" type="range" min="0" max="100"  value="0" step="0.1" oninput="changeIt(this.value)" >
-<!--
+   <input id="scale" type="range" min="0" max="100" value="0" step="0.1" oninput="changeIt(this.value)">
+   <!--
 <input type="button" value="50" onclick="changeIt(50)" >
 <input id="xIn" type="range" min="0" max="1104" oninput="puter()" />x: <span id="xOut"></span>
 <input id="yIn" type="range" min="0" max="350"  oninput="puter()" />y: <span id="yOut"></span>
 -->
 </body>
-</html> 
+
+</html>
