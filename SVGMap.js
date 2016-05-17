@@ -184,7 +184,7 @@ var pics = [
    }
 ];
 
-var picLocation = "../Real/BOMscorm/Content/SCO1/pictures/";
+var picLocation = "pictures/";
 var pathLenth = 0;
 
 function makeBadges(draw, picIn, counter) {
@@ -193,7 +193,7 @@ function makeBadges(draw, picIn, counter) {
    image = draw.image(picLocation + picIn.fileName).loaded(function (loader) {
       this.size(loader.width, loader.height);
       this.center(0, 0);
-      this.scale(picIn.scalePic);
+      this.scale(picIn.scalePic, picIn.scalePic);
    });
 
    //move the group and then add the image
@@ -202,19 +202,24 @@ function makeBadges(draw, picIn, counter) {
    groupMe.hide();
 
    groupMe.on('goBackSmall', function () {
-      //debugger;
-      this.animate(700).scale(1).move(picIn.x, picIn.y).opacity(1);
+      var startOpacity = this.opacity(),
+         startScale = this.transform('scaleX');
+      this.animate(700).move(picIn.x, picIn.y).during(function (pos, morph) {
+         this.opacity(morph(startOpacity, 1));
+         this.scale(morph(startScale, 1));
+      });
    });
 
    groupMe.mouseout(function () {
-      console.count("hi");
       this.fire("goBackSmall");
-
    });
 
    groupMe.mouseover(function () {
+      var startScale = this.transform('scaleX');
       if (this.transform("scaleX") === 1) {
-         this.front().animate(500).scale(picIn.animateScale).dmove(picIn.dx, picIn.dy); // make it dmove for relative
+         this.front().animate(500).dmove(picIn.dx, picIn.dy).during(function (pos, morph) {
+            this.scale(morph(1, picIn.animateScale));
+         });
       }
    });
 
@@ -235,7 +240,7 @@ function changeIt(numIn) {
    pics.forEach(function (picIn, i) {
       var pic = SVG.get('pic' + i);
       if (i < picsToShow && !pic.visible()) {
-         pic.front().scale(3).move(552, 150).opacity(0);
+         pic.front().center(552, 150).scale(2).opacity(0);
          pic.show();
          pic.fire('goBackSmall');
       } else if (i >= picsToShow) {
@@ -279,7 +284,6 @@ function mapStartUp() {
    var draw, path, i;
    draw = SVG('map').size(1104, 350);
 
-   SVG.registerEvent('goBackSmall');
    //background
    draw.image(picLocation + 'FantasyMap.png');
    //draw.image('BadgesBOM/Map-Prototype.png').transform('matrix', '0.96,0,0,0.96,0,0');
