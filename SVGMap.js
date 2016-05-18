@@ -3,6 +3,7 @@
 var progressMap = (function () {
    "use strict";
    /* beautify preserve:start */
+   //this is the locations of the badges on the map and other settings
    var pics = [
       {fileName: 'badge1.png',  x: 88,   y: 301, dx: 50, dy: -50, scalePic: 0.29, animateScale: 2},
       {fileName: 'badge2.png',  x: 47,   y: 163, dx: 50, dy: 0,   scalePic: 0.29, animateScale: 2},
