@@ -140,7 +140,7 @@ var progressMap = (function () {
          .attr("style", "fill:none;stroke:#E71E25;stroke-width:4;stroke-miterlimit:10;");
 
       //setup line
-      path = document.querySelector("#" + savedDivId + " .pathLine");
+      path = document.querySelector("#" + divIdIn + " .pathLine");
       pathLenth = path.getTotalLength();
       path.style.strokeDasharray = pathLenth;
 
