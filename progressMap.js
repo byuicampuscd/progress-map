@@ -140,7 +140,7 @@ var progressMap = (function () {
       savedDivId = divIdIn;
 
       //get going
-      draw = SVG(divIdIn).size(backgroundPic.width, backgroundPic.height);
+      draw = SVG(divIdIn).size('100%','100%').viewbox(0,0,backgroundPic.width, backgroundPic.height);
 
       //background
       draw.image(picLocation + backgroundPic.fileName);
