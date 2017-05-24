@@ -1,0 +1,14 @@
+{
+  "name": "progress-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "progressMap.js",
+  "scripts": {
+    "test": "NA"
+  },
+  "author": "Joshua McKinney",
+  "contributors": [{
+    "name": "Andrew Gremlich"
+  }],
+  "license": "MIT"
+}
