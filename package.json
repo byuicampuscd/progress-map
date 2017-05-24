@@ -1,7 +1,7 @@
 {
   "name": "progress-map",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is the modular svg map that had an update-able path on it.",
   "main": "progressMap.js",
   "scripts": {
     "test": "NA"
